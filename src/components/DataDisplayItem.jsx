@@ -20,6 +20,10 @@ class DataDisplayItem extends Component {
     //this.props.data => 1 user object
     //this.props.options => configuration object
     this.propertiesToShow = [];
+  }
+
+  render () {
+    this.propertiesToShow = [];
     for (var key in this.props.show) {
       if (this.props.show[key] === true) {
         var convertToString = key;
@@ -28,9 +32,7 @@ class DataDisplayItem extends Component {
           );
       }
     }
-  }
 
-  render () {
     return (
         <tr>
           {this.propertiesToShow}
