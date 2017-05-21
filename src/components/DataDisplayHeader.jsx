@@ -8,6 +8,10 @@ class DataDisplayHeader extends Component {
   constructor (props) {
     super(props);
     this.propertiesToShow = []
+  }
+
+  render () {
+    this.propertiesToShow = [];
     for (var key in this.props.show) {
       if (this.props.show[key] === true) {
         var convertToString = key;
@@ -16,10 +20,9 @@ class DataDisplayHeader extends Component {
           );
       }
     }
-  }
 
-  render () {
     return (
+
         <tr>
           {this.propertiesToShow}
         </tr>
