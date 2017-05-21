@@ -29,8 +29,8 @@ class DataDisplay extends Component {
         )
     }
 
-    const dataItems = this.props.data.data.map((user) => {
-      return <DataDisplayItem key={user.user_id} data={user} show={this.props.data.show} />
+    const dataItems = this.props.data.data.map((item) => {
+      return <DataDisplayItem key={item.user_id || item.code} data={item} show={this.props.data.show} />
     });
 
     return (
