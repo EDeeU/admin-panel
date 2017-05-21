@@ -12,7 +12,10 @@ class ControlPanel extends Component {
     return (
       <div className="ControlPanel">
         <DataSelector onSelect={this.props.onSelect}/>
-        <OptionsSelector toggleOption = {this.props.toggleOption} options={this.props.options}/>
+        <OptionsSelector
+          toggleOption = {this.props.toggleOption}
+          options={this.props.options}
+          />
       </div>
     );
   }

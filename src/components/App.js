@@ -84,8 +84,12 @@ class App extends Component {
       this.setState({selected: value});
     }
 
-    toggleOption () {
-      //this.setState the option
+    toggleOption (property) {
+      var stateCopy = {...this.state[this.state.selected]}
+      stateCopy.show[property] = !stateCopy.show[property]; //stateCopy is good
+      var option = {...stateCopy.show};
+
+      this.setState({[this.state.selected]: stateCopy})
     }
 
   render() {
@@ -93,7 +97,10 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <div>Edeeu Admin Panel</div>
-          <ControlPanel options={this.state[this.state.selected].show} onSelect={this.handleSelect} toggleOption={this.toggleOption}/>
+          <ControlPanel
+            options={this.state[this.state.selected].show}
+            onSelect={this.handleSelect}
+            toggleOption={this.toggleOption}/>
         </div>
 
 

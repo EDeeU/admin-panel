@@ -10,7 +10,7 @@ class OptionItem extends Component {
   }
   render () {
     return (
-      <div> {this.props.value} </div>
+      <div onClick={() => this.props.toggleOption(this.props.value)}> {this.props.value} </div>
     );
   }
 }
