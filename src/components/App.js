@@ -22,9 +22,8 @@ class App extends Component {
     super(props);
     this.state = {
       selected: 'users',
-      userData: null,
-      classData: null,
       users: {
+          data: null,
           show: {
             profile_image: true,
             user_email: true,
@@ -35,6 +34,7 @@ class App extends Component {
           }
       },
       classes: {
+          data: null,
           show: {
             code: true,
             description: true,
@@ -58,8 +58,10 @@ class App extends Component {
               temporaryUsers.push(rawUserData[key]);
             }
           }
-          this.setState({userData: temporaryUsers});
-          console.log('this.state.userData is', this.state.userData);
+        rawUserData = {...this.state[this.state.selected]};
+        rawUserData.data = temporaryUsers;
+        this.setState({users: rawUserData});
+          console.log('this.state.userData is', this.state.users.userData);
       })
       .catch((error) => {
         console.log('error retrieving data', error);
@@ -75,9 +77,9 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Data selector and options panel here</h2>
         </div>
-        <DataDisplay data={this.state.userData} show={this.state[this.state.selected].show}/>
+        <DataDisplay data={this.state[this.state.selected].data} show={this.state[this.state.selected].show}/>
       </div>
     );
   }
