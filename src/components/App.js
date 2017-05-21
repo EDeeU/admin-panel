@@ -25,21 +25,21 @@ class App extends Component {
       users: {
           data: null,
           show: {
-            profile_image: true,
+            profile_image: false,
             user_email: true,
             user_id: true,
             user_name: true,
-            user_schools: true,
+            user_schools: false,
             user_url: true
           }
       },
       classes: {
           data: null,
           show: {
-            code: true,
-            description: true,
-            subject: true,
-            title: true
+            Code: true,
+            Description: true,
+            Subject: true,
+            Title: true
           }
       }
     };
@@ -49,10 +49,7 @@ class App extends Component {
         console.log('sign in success');
         database.ref('/users').once('value')
       .then((snapshot) => {
-        //snapshot.val() is an object with each key being a person, that key is also inside the user.user_id
-        //convert to array here and store in state
           var rawUserData = snapshot.val();
-          console.log('rawUserData', rawUserData);
           for (var key in rawUserData) {
             if (rawUserData.hasOwnProperty(key)) {
               temporaryUsers.push(rawUserData[key]);
@@ -61,7 +58,6 @@ class App extends Component {
         rawUserData = {...this.state[this.state.selected]};
         rawUserData.data = temporaryUsers;
         this.setState({users: rawUserData});
-          console.log('this.state.userData is', this.state.users.userData);
       })
       .catch((error) => {
         console.log('error retrieving data', error);
@@ -70,7 +66,7 @@ class App extends Component {
       .catch(function(error) {
       console.log('err sign in', error);
       });
-  }
+  }//retreives data, then stores into the state.selected's data array, by making a copy of the rest of the object. remember "nested state" and how to handle it.
 
   render() {
     return (
@@ -79,7 +75,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Data selector and options panel here</h2>
         </div>
-        <DataDisplay data={this.state[this.state.selected].data} show={this.state[this.state.selected].show}/>
+        <DataDisplay data={this.state[this.state.selected]}/>
       </div>
     );
   }

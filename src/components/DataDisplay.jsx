@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import DataDisplayItem from './DataDisplayItem.jsx';
+import DataDisplayHeader from './DataDisplayHeader.jsx';
 
-//props is the "show" object of whichever is selected
+//<DataDisplay data={this.state[this.state.selected]}/>
+// users: {
+//     data: null,
+//     show: {
+//       profile_image: true,
+//       user_email: true,
+//       user_id: true,
+//       user_name: true,
+//       user_schools: true,
+//       user_url: true
+//     }
+// }
+//DataDisplayHeader.jsx
 
 class DataDisplay extends Component {
   constructor(props) {
@@ -10,23 +23,20 @@ class DataDisplay extends Component {
   }
 
   render () {
-    if (this.props.data === null) {
+    if (this.props.data.data === null) {
       return (
           <div> loading up the data! </div>
         )
     }
-    const dataItems = this.props.data.map((user) => {
-      return <DataDisplayItem key={user.user_id} data={user} />
+
+    const dataItems = this.props.data.data.map((user) => {
+      return <DataDisplayItem key={user.user_id} data={user} show={this.props.data.show} />
     });
+
     return (
         <table>
           <tbody>
-            <tr>
-              <th>email</th>
-              <th>id</th>
-              <th>name</th>
-              <th>url</th>
-            </tr>
+            <DataDisplayHeader show={this.props.data.show}/>
             {dataItems}
           </tbody>
         </table>
