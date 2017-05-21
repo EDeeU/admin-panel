@@ -9,7 +9,7 @@ class DataSelector extends Component {
 
   render () {
     return (
-      <Dropdown>
+      <Dropdown className="DataSelector">
         <DropdownTrigger>select</DropdownTrigger>
         <DropdownContent>
           <ul>

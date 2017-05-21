@@ -21,7 +21,7 @@ class OptionsSelector extends Component {
   }
 
     return (
-      <ul>
+      <ul className="OptionsSelector" >
         <li>hi hi hi</li>
         {optionItems}
       </ul>

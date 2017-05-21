@@ -1,0 +1,12 @@
+.ControlPanel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.DataSelector {
+  display: inline-block;
+}
+
+.OptionsSelector {
+  display: inline-block;
+}
