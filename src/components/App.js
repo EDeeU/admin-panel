@@ -25,11 +25,11 @@ class App extends Component {
       users: {
           data: null,
           show: {
-            profile_image: false,
+            profile_image: true,
             user_email: true,
             user_id: true,
             user_name: true,
-            user_schools: false,
+            user_schools: true,
             user_url: true
           }
       },
@@ -46,38 +46,38 @@ class App extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.toggleOption = this.toggleOption.bind(this);
 
-  //   firebase.auth().signInWithEmailAndPassword(email, password)
-  //     .then(() => {
-  //       console.log('sign in success');
-  //       database.ref('/users').limitToFirst(3).once('value')
-  //       .then((snapshot) => {
-  //           var rawUserData = snapshot.val();
-  //           for (var key in rawUserData) {
-  //             if (rawUserData.hasOwnProperty(key)) {
-  //               temporaryUsers.push(rawUserData[key]);
-  //             }
-  //           }
-  //         rawUserData = {...this.state.users};
-  //         rawUserData.data = temporaryUsers;
-  //         this.setState({users: rawUserData});
-  //         console.log('user data set', this.state.users.data);
-  //       database.ref('/classes').limitToFirst(3).once('value')
-  //       .then((snapshot) => {
-  //         console.log('got the class data', snapshot.val());
-  //           var rawClassData = snapshot.val();
-  //           for (var key in rawClassData) {
-  //             if (rawClassData.hasOwnProperty(key)) {
-  //               temporaryClasses.push(rawClassData[key]);
-  //             }
-  //           }
-  //           rawClassData = {...this.state.classes};
-  //           rawClassData.data = temporaryClasses;
-  //           this.setState({classes: rawClassData})
-  //           console.log('class data set', this.state.classes.data);
-  //       })
-  //   });
-  // });
-  //retreives data, then stores into the state.selected's data array, by making a copy of the rest of the object. remember "nested state" and how to handle it.
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log('sign in success');
+        database.ref('/users').limitToFirst(3).once('value')
+        .then((snapshot) => {
+            var rawUserData = snapshot.val();
+            for (var key in rawUserData) {
+              if (rawUserData.hasOwnProperty(key)) {
+                temporaryUsers.push(rawUserData[key]);
+              }
+            }
+          rawUserData = {...this.state.users};
+          rawUserData.data = temporaryUsers;
+          this.setState({users: rawUserData});
+          console.log('user data set', this.state.users.data);
+        database.ref('/classes').limitToFirst(3).once('value')
+        .then((snapshot) => {
+          console.log('got the class data', snapshot.val());
+            var rawClassData = snapshot.val();
+            for (var key in rawClassData) {
+              if (rawClassData.hasOwnProperty(key)) {
+                temporaryClasses.push(rawClassData[key]);
+              }
+            }
+            rawClassData = {...this.state.classes};
+            rawClassData.data = temporaryClasses;
+            this.setState({classes: rawClassData})
+            console.log('class data set', this.state.classes.data);
+        })
+    });
+  });
+  // retreives data, then stores into the state.selected's data array, by making a copy of the rest of the object. remember "nested state" and how to handle it.
 
   };
 
