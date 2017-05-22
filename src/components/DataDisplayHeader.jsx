@@ -7,12 +7,13 @@ class DataDisplayHeader extends Component {
   }
 
   render () {
+
     this.propertiesToShow = [];
-    for (var key in this.props.show) {
-      if (this.props.show[key] === true) {
-        var convertToString = key;
+
+    for (var banana in this.props.show) {
+      if (this.props.show[banana] === true) {
         this.propertiesToShow.push(
-            <td key={convertToString}>{convertToString}</td>
+            <td key={banana} onClick={ this.props.handleSort.bind(this, banana)}>{banana}</td>
           );
       }
     }

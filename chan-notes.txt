@@ -1,0 +1,5 @@
+//connect sorting to
+//whenever DataDisplay receives props it'll sort the data
+//feed the 'sort' as props to DataDisplay from App
+
+//DataDisplayHeader has a function that changes App.state

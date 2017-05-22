@@ -11,7 +11,7 @@ class DataDisplayItem extends Component {
     for (var key in this.props.show) {
       if (this.props.show[key] === true) {
         var convertToString = key;
-        if (key === 'user_schools') {
+        if (key === 'user_schools' && this.props.data[key] !== undefined) {
           this.propertiesToShow.push(
             <td key={key}>{this.props.data[key].displayname}</td>
           );

@@ -8,17 +8,27 @@ class DataDisplay extends Component {
     super(props);
 
     this.state = {
-      sort: 'user_name'
+      sort: this.props.sort
+    }
+    this.handleSort = this.handleSort.bind(this);
+    if (props.data.data) {
+      this.dataItems = props.data.data.map((item) => {
+        return <DataDisplayItem key={item.user_id || item.code} data={item} show={props.data.show} />
+      })
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.state.sort) {
-      console.log('sort is called', this.dataItems);
-      this.dataItems = _.sortBy(nextProps.data.data, [this.state.sort]);
-      console.log('sorted to this', this.dataItems);
-    }
+  handleSort (e) {
+    console.log('e.target', e);
+    console.log('what the fuck is this at this point', this);
+    this.setState({sort: e })
+  }
+
+  componentWillUpdate(nextProps, nextState) {
     if (nextProps.data.data) {
+      if (this.state.sort !== nextState.sort)
+        console.log('nextState is', nextState);
+      this.dataItems = _.sortBy(nextProps.data.data, [nextState.sort]);
       this.dataItems = this.dataItems.map((item) => {
         return <DataDisplayItem key={item.user_id || item.code} data={item} show={nextProps.data.show} />
       }); //dataItems is what has to be sorted
@@ -34,10 +44,10 @@ class DataDisplay extends Component {
 
     return (
       <div className="DataDisplay">
-        <div className="DataDisplayHeader">Viewing Data For {this.props.selected} </div>
+        <div className="DataDisplayTitle">Viewing Data For {this.props.selected} </div>
         <table>
           <tbody>
-            <DataDisplayHeader show={this.props.data.show}/>
+            <DataDisplayHeader show={this.props.data.show} handleSort={this.handleSort}/>
             {this.dataItems}
           </tbody>
         </table>
