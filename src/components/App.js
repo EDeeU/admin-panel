@@ -28,10 +28,14 @@ class App extends Component {
           show: {
             profile_image: true,
             user_email: true,
-            user_id: true,
+            user_id: false,
             user_name: true,
             user_schools: true,
-            user_url: true
+            user_url: true,
+            user_courses: true,
+            user_featured_items: false,
+            user_portfolio_items: true,
+            user_subjects: true
           }
       },
       classes: {

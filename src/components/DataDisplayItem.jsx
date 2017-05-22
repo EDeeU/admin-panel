@@ -12,8 +12,7 @@ class DataDisplayItem extends Component {
     this.propertiesToShow = [];
     for (var key in this.props.show) {
       if (this.props.show[key] === true) {
-        var convertToString = key;
-        if (key === 'user_schools' && this.props.data[key] !== undefined) {
+        if (key === 'user_schools' && this.props.data[key]) {
           this.propertiesToShow.push(
             <td key={key}>{this.props.data[key].displayname}</td>
           );
@@ -24,6 +23,22 @@ class DataDisplayItem extends Component {
         } else if (key==="user_url") {
           this.propertiesToShow.push(
             <td key={key}><a href={this.props.data.user_url} target="_blank">{this.props.data[key]}</a></td>
+          );
+        } else if (key==="user_featured_items" && this.props.data[key]) {
+          this.propertiesToShow.push(
+            <td key={key}>{Object.keys(this.props.data[key]).length}</td>
+          );
+        } else if (key==="user_portfolio_items" && this.props.data[key]) {
+          this.propertiesToShow.push(
+            <td key={key}>{Object.keys(this.props.data[key]).length}</td>
+          );
+        } else if (key === "user_courses" && this.props.data[key]) {
+          this.propertiesToShow.push(
+            <td key={key}>{Object.keys(this.props.data[key]).length}</td>
+          );
+        } else if (key === "user_subjects" && this.props.data[key]) {
+          this.propertiesToShow.push(
+            <td key={key}>{Object.keys(this.props.data[key]).length}</td>
           );
         } else {
           this.propertiesToShow.push(
