@@ -23,6 +23,12 @@ body {
   padding: 5px;
 }
 
+.DataDisplayHeader {
+  display: table;
+  font-size: 1.5em;
+  margin: auto;
+  padding: 20px;
+}
 .DataSelector {
   display: flex;
   align-items: center;
@@ -37,7 +43,7 @@ body {
   padding: 15px;
   margin: 3px;
 }
-.DataOption:hover, .OptionsItem:hover {
+.DataOption:hover, .OptionsItem:hover, .Selected {
   background: #fff;
 }
 

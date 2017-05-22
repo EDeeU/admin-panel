@@ -9,6 +9,11 @@ class OptionItem extends Component {
     super(props);
   }
   render () {
+    if (this.props.selected) {
+      return (
+          <div className="OptionsItem Selected" onClick={() => this.props.toggleOption(this.props.value)}> {this.props.value} </div>
+        )
+    }
     return (
       <div className="OptionsItem" onClick={() => this.props.toggleOption(this.props.value)}> {this.props.value} </div>
     );

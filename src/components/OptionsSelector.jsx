@@ -15,7 +15,7 @@ class OptionsSelector extends Component {
   for (var key in this.props.options) {
     if (this.props.options.hasOwnProperty(key)) {
       optionItems.push(
-          <OptionItem toggleOption={this.props.toggleOption} option={this.props.options[key]} key={key} value={key}/>
+          <OptionItem toggleOption={this.props.toggleOption} selected={this.props.options[key]} key={key} value={key}/>
         );
     }
   }
