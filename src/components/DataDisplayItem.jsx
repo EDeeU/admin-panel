@@ -6,6 +6,8 @@ class DataDisplayItem extends Component {
     this.propertiesToShow = [];
   }
 
+//<a href={this.props.data.user_url} target="_blank">
+
   render () {
     this.propertiesToShow = [];
     for (var key in this.props.show) {
@@ -17,9 +19,13 @@ class DataDisplayItem extends Component {
           );
         } else if (key==='profile_image') {
           this.propertiesToShow.push(
-            <td key={key}><img src={this.props.data[key]} alt={this.props.data.user_name} height="60" width="60" ></img></td>
+            <td key={key}><a href={this.props.data.user_url} target="_blank"><img src={this.props.data[key]} alt={this.props.data.user_name} height="60" width="60" ></img></a></td>
           );
-        }else {
+        } else if (key==="user_url") {
+          this.propertiesToShow.push(
+            <td key={key}><a href={this.props.data.user_url} target="_blank">{this.props.data[key]}</a></td>
+          );
+        } else {
           this.propertiesToShow.push(
             <td key={key}>{this.props.data[key]}</td>
           );
