@@ -18,10 +18,8 @@ class DataDisplay extends Component {
     }
   }
 
-  handleSort (e) {
-    console.log('e.target', e);
-    console.log('what the fuck is this at this point', this);
-    this.setState({sort: e })
+  handleSort (keyToSortBy) {
+    this.setState({sort: keyToSortBy })
   }
 
   componentWillUpdate(nextProps, nextState) {
