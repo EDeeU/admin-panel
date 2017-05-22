@@ -49,7 +49,7 @@ class App extends Component {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(() => {
         console.log('sign in success');
-        database.ref('/users').limitToFirst(3).once('value')
+        database.ref('/users').once('value')
         .then((snapshot) => {
             var rawUserData = snapshot.val();
             for (var key in rawUserData) {
@@ -61,7 +61,7 @@ class App extends Component {
           rawUserData.data = temporaryUsers;
           this.setState({users: rawUserData});
           console.log('user data set', this.state.users.data);
-        database.ref('/classes').limitToFirst(3).once('value')
+        database.ref('/classes').once('value')
         .then((snapshot) => {
           console.log('got the class data', snapshot.val());
             var rawClassData = snapshot.val();
