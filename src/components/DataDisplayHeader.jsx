@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
 
-//just receives the show: {};
-//as this.props.show
-
-
 class DataDisplayHeader extends Component {
   constructor (props) {
     super(props);

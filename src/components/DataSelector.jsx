@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Dropdown, {DropdownTrigger, DropdownContent} from 'react-simple-dropdown';
-import '../Dropdown.css';
 
 class DataSelector extends Component {
   constructor(props) {
@@ -9,15 +8,10 @@ class DataSelector extends Component {
 
   render () {
     return (
-      <Dropdown className="DataSelector">
-        <DropdownTrigger>select</DropdownTrigger>
-        <DropdownContent>
-          <ul>
-            <li onClick={()=>this.props.onSelect('users')}>users</li>
-            <li onClick={()=>this.props.onSelect('classes')}>classes</li>
-          </ul>
-        </DropdownContent>
-      </Dropdown>
+          <div className="DataSelector">
+            <div className="DataOption" onClick={()=>this.props.onSelect('users')}>users</div>
+            <div className="DataOption" onClick={()=>this.props.onSelect('classes')}>classes</div>
+          </div>
     );
   }
 

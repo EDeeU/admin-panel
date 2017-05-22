@@ -2,20 +2,6 @@ import React, { Component } from 'react';
 import DataDisplayItem from './DataDisplayItem.jsx';
 import DataDisplayHeader from './DataDisplayHeader.jsx';
 
-//<DataDisplay data={this.state[this.state.selected]}/>
-// users: {
-//     data: null,
-//     show: {
-//       profile_image: true,
-//       user_email: true,
-//       user_id: true,
-//       user_name: true,
-//       user_schools: true,
-//       user_url: true
-//     }
-// }
-//DataDisplayHeader.jsx
-
 class DataDisplay extends Component {
   constructor(props) {
     super(props);

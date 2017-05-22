@@ -21,10 +21,10 @@ class OptionsSelector extends Component {
   }
 
     return (
-      <ul className="OptionsSelector" >
-        <li>hi hi hi</li>
+      <div className="OptionsSelector" >
+        <div className="OptionsSelectorHeader">Hide / Display</div>
         {optionItems}
-      </ul>
+      </div>
     );
   }
 }

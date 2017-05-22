@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import DataSelector from './DataSelector.jsx';
 import OptionsSelector from './OptionsSelector.jsx';
-import '../temporary.css';
 
 class ControlPanel extends Component {
   constructor(props) {
