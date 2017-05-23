@@ -54,7 +54,7 @@ class App extends Component {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(() => {
         console.log('sign in success');
-        database.ref('/users').limitToFirst(10).once('value')
+        database.ref('/users').once('value')
         .then((snapshot) => {
             var rawUserData = snapshot.val();
             for (var key in rawUserData) {
