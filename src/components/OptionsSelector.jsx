@@ -22,7 +22,6 @@ class OptionsSelector extends Component {
 
     return (
       <div className="OptionsSelector" >
-        <div className="OptionsSelectorHeader">Hide / Display</div>
         {optionItems}
       </div>
     );

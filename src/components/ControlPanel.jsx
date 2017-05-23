@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import DataSelector from './DataSelector.jsx';
 import OptionsSelector from './OptionsSelector.jsx';
 
 class ControlPanel extends Component {
@@ -10,7 +9,7 @@ class ControlPanel extends Component {
   render () {
     return (
       <div className="ControlPanel">
-        <DataSelector onSelect={this.props.onSelect}/>
+      <div className="OptionsSelectorHeader">Hide / Display</div>
         <OptionsSelector
           toggleOption = {this.props.toggleOption}
           options={this.props.options}

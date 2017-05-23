@@ -35,7 +35,7 @@ class App extends Component {
             user_courses: true,
             user_featured_items: false,
             user_portfolio_items: true,
-            user_subjects: true
+            user_subjects: false
           }
       },
       classes: {

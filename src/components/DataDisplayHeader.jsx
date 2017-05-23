@@ -18,7 +18,7 @@ class DataDisplayHeader extends Component {
 
     return (
 
-        <tr>
+        <tr className="TableHeaderText">
           {this.propertiesToShow}
         </tr>
       );
